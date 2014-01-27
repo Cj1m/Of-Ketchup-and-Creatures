@@ -40,10 +40,10 @@ public class Main {
 	private void welcome(){
 		System.out.println("Welcome to the Of Ketchup and Creatures, Enjoy your stay...");
 		System.out.println("-----------------------------------------------------");
-		System.out.println("Name?");
+		System.out.println("What's your name adventurer?");
 		Scanner name = new Scanner(System.in); 
 		usr = name.nextLine();
-		System.out.println("Hello, " + usr);
+		System.out.println("Greetings, " + usr);
 		System.out.println("Your party:");
 		System.out.println("The Dwarf, " + dwarf);
 		System.out.println("The Orc, " + orc);
@@ -70,7 +70,7 @@ public class Main {
 			System.out.println("You turn back, but by the time you arrive at the Town, you have forgotten why you are there. #LazyDeveloper");
 			part1();
 		}else if(option.equals("C")){
-			System.out.println("You accept that you will not be having ketchup with your beans tonight, and carry on with your adventure.");
+			System.out.println("You accept that you will not be having ketchup with your beans tonight and carry on with your adventure.");
 			part2();
 		}else{
 			error(1);
@@ -109,14 +109,14 @@ public class Main {
 		System.out.println("CHOMP!");
 		
 		if(option.equals(gnome)){
-			System.out.println(gnome + " screams with rage and runs off into the distance with a trail of fire behind him. " + gnome + " has left the party, nice one..");
+			System.out.println(gnome + " screams with rage and runs off into the distance with a trail of fire behind him. " + gnome + " has left the party, nice one...");
 			handOff = 1;
 		}else if(option.equals(orc)){
 			health--;
 			System.out.println(orc + " looks at his hand, then back at you - his face full of rage. He takes a swing at your head. Your health is now: " + health);
 			handOff = 2;
 		}else if(option.equals(wizard)){
-			System.out.println(wizard + " waves his wand over his wrist. Instead of growing a hand, it grows a flower. " + wizard + " is angry.");
+			System.out.println(wizard + " waves his wand over his wrist. Instead of growing a hand, he grows a flower. " + wizard + " is angry.");
 			handOff = 3;
 		}else{
 			error(2);
@@ -134,12 +134,12 @@ public class Main {
 		
 		if(handOff == 2){
 			health--;
-			System.out.println(orc + " looks at his hand again, then back at you - his face still full of rage. He takes another swing at your head. Your health is now: " + health);
+			System.out.println(orc + " looks at his hand again, then back at you - his face filling with more rage. He wraps his hands around his club and takes yet another swing at your head. Your health is now: " + health);
 		}
 	}
 	
 	private void error(int i){
-		System.out.println("Are you mad? ");
+		System.out.println("Are you mad? *NOTE:Case sensitive* ");
 		if(i == 1);part1();
 		if(i == 2);part2();
 	}
