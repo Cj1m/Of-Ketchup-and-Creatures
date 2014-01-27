@@ -16,6 +16,9 @@ public class Main {
 	String option;
 	String lastwords = "'I didn't mean no harm...'";
 	
+	int handOff;
+	int health = 10;
+	
 	public static void main(String[] args) {
 		Main main = new Main();
 	}
@@ -26,7 +29,7 @@ public class Main {
 	private void game() {
 		welcome();
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,7 +38,7 @@ public class Main {
 	}
 	
 	private void welcome(){
-		System.out.println("Welcome to the Axe and Sword Bros, Enjoy your stay...");
+		System.out.println("Welcome to the Of Ketchup and Creatures, Enjoy your stay...");
 		System.out.println("-----------------------------------------------------");
 		System.out.println("Name?");
 		Scanner name = new Scanner(System.in); 
@@ -67,6 +70,7 @@ public class Main {
 			System.out.println("You turn back, but by the time you arrive at the Town, you have forgotten why you are there. #LazyDeveloper");
 			part1();
 		}else if(option.equals("C")){
+			System.out.println("You accept that you will not be having ketchup with your beans tonight, and carry on with your adventure.");
 			part2();
 		}else{
 			error(1);
@@ -79,7 +83,59 @@ public class Main {
 	}
 	
 	private void part2(){
+		System.out.println("---------------------");
+		System.out.println("CHAPTER DOS: HAND OFF");
+		System.out.println("---------------------");
+		System.out.println("");
 		
+		System.out.println("You have been travelling for 2 days and 5 nights. So far, your journey has been uneventful. You were not the only forgotful one, half of your party forgot the food. " + dwarf + " is hungry and so are you, who do you eat?");
+		Scanner sc = new Scanner(System.in);
+		option = sc.nextLine();
+		
+		System.out.println("CHOP");
+		System.out.println();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("CHOP");
+		System.out.println();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("CHOMP!");
+		
+		if(option.equals(gnome)){
+			System.out.println(gnome + " screams with rage and runs off into the distance with a trail of fire behind him. " + gnome + " has left the party, nice one..");
+			handOff = 1;
+		}else if(option.equals(orc)){
+			health--;
+			System.out.println(orc + " looks at his hand, then back at you - his face full of rage. He takes a swing at your head. Your health is now: " + health);
+			handOff = 2;
+		}else if(option.equals(wizard)){
+			System.out.println(wizard + " waves his wand over his wrist. Instead of growing a hand, it grows a flower. " + wizard + " is angry.");
+			handOff = 3;
+		}else{
+			error(2);
+		}
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("");
+		System.out.println("A bright light catches your eye. You look into the distance and see a brightly lit market - a food market.");
+		
+		if(handOff == 2){
+			health--;
+			System.out.println(orc + " looks at his hand again, then back at you - his face still full of rage. He takes another swing at your head. Your health is now: " + health);
+		}
 	}
 	
 	private void error(int i){
