@@ -5,6 +5,7 @@ import java.util.Scanner;
 //Written by Christopher McKay
 //Written 26/01/2014 (Americans, goodluck with figuring that out)
 //Story by Chris, but that doesn't matter
+//Note from Chris: Chris' story tots doesnae mattter bruv, I follow ye.
 
 public class Main {
 	String usr;
@@ -138,9 +139,31 @@ public class Main {
 		}
 	}
 	
+	
+	private void part4(){
+		System.out.println("------------------------------------------------");
+		System.out.println("CHAPTER CUATRO: FRANKY'S FOODS");
+		System.out.println("------------------------------------------------");
+		System.out.println("");
+		
+		System.out.println("On your way down to the market you find yourself walking in circles. Thankfully you meet a friendly traveller who's able to help you. He walk up to and asks if you need help. What do you do?");
+		Scanner sc = new Scanner(System.in);
+		option = sc.nextLine();
+		/*Part 3:
+		Far over the Foggy Mountain or Hill
+		To dungeons deep with our traveller Bill
+		We could away ere break of day
+		To find our long-forgotten ASPARAGUS!*/
+		
+	}
+	
 	private void error(int i){
-		System.out.println("Are you mad? *NOTE:Case sensitive* ");
+		System.out.println("Are you mad? *NOTE: Case sensitive* ");
 		if(i == 1);part1();
 		if(i == 2);part2();
+		if(i == 3);part3();
+		if(i == 4);part4();System.out.println("Sorry, that desicion is not valid");
+		}
+		
 	}
 }
