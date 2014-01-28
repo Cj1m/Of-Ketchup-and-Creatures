@@ -226,6 +226,7 @@ public class Main {
 		health -= 10;;
 		System.out.println("YOU'RE HEALTH IS NOW " + health + ". YOU ARE DEAD!");
 		System.out.println("");
+		health = 10;
 		game();
 	}
 	
@@ -246,11 +247,11 @@ public class Main {
 	}
 	
 	private void error(int i){
-		System.out.println("Are you mad? *NOTE: Case sensitive* ");
-		if(i == 1);part1();
-		if(i == 2);part2();
-		if(i == 3);part3();
-		if(i == 304);part3AndAHalf();
-		if(i == 4);part4();System.out.println("Sorry, that desicion is not valid");	//ATM 	
+		System.out.println("Are you mad?");
+		if(i == 1)part1();
+		if(i == 2)part2();
+		if(i == 3)part3();
+		if(i == 304)part3AndAHalf();
+		if(i == 4)part4();System.out.println("Sorry, that desicion is not valid");	//ATM 	
 	}
 }
