@@ -39,9 +39,9 @@ public class Main {
 	}
 	
 	private void welcome(){
-		System.out.println("Welcome to the Of Ketchup and Creatures, Enjoy your stay...");
-		System.out.println("-----------------------------------------------------");
-		System.out.println("What's your name adventurer?");
+		System.out.println("Welcome to 'Of Ketchup and Creatures', Enjoy your playthrough...");
+		System.out.println("----------------------------------------------------------------");
+		System.out.println("What's your name, adventurer?");
 		Scanner name = new Scanner(System.in); 
 		usr = name.nextLine();
 		System.out.println("Greetings, " + usr);
@@ -50,9 +50,11 @@ public class Main {
 		System.out.println("The Orc, " + orc);
 		System.out.println("The Gnome, " + gnome);
 		System.out.println("The Wizard, " + wizard);
-		System.out.println("And ofcourse, there's you, the human, " + usr);
+		System.out.println("And of course, there's you, the human, " + usr);
 	}
 	
+	//Part 1
+	//Part 1
 	private void part1(){
 		System.out.println("------------------------------------");
 		System.out.println("CHAPTER UNO: GOODBYE MY DEAR KETCHUP");
@@ -60,9 +62,13 @@ public class Main {
 		System.out.println("");
 		System.out.println("You watch nervously as you travel further and further away from your home, the Town Of Tomato. The fearsome wind sways the wagon from side to side. You check your supplies, you forgot the sachet of Ketchup.");
 		System.out.println("What do you do?");
+		System.out.println("");
 		System.out.println("A) Smack " + gnome + " in the face.");
+		System.out.println("");
 		System.out.println("B) Turn back for the ketchup.");
+		System.out.println("");
 		System.out.println("C) Accept that you will not have ketchup with your beans tonight.");
+		System.out.println("");
 		Scanner sc = new Scanner(System.in);
 		option = sc.nextLine();
 		if(option.equals("A")){
@@ -83,13 +89,16 @@ public class Main {
 		System.out.println(gnome +" shouts 'DIOS ES GRANDE!', ignites his lighter, and sets the wagon on fire. Your last words were " + lastwords);
 	}
 	
+	//Part 2
+	//Part 2
 	private void part2(){
 		System.out.println("---------------------");
 		System.out.println("CHAPTER DOS: HAND OFF");
 		System.out.println("---------------------");
 		System.out.println("");
 		
-		System.out.println("You have been travelling for 2 days and 5 nights. So far, your journey has been uneventful. You were not the only forgotful one, half of your party forgot the food. " + dwarf + " is hungry and so are you, who do you eat?");
+		System.out.println("You have been travelling for 2 days and 5 nights. So far, your journey has been uneventful.");
+		System.out.println(" You were not the only forgetful one, half of your party forgot the food. " + dwarf + " is hungry and so are you, who do you eat?");
 		Scanner sc = new Scanner(System.in);
 		option = sc.nextLine();
 		
@@ -135,23 +144,37 @@ public class Main {
 		
 		if(handOff == 2){
 			health--;
-			System.out.println(orc + " looks at his hand again, then back at you - his face filling with more rage. He wraps his hands around his club and takes yet another swing at your head. Your health is now: " + health);
+			System.out.println(orc + " looks at his hand again, then back at you - his face filling with more rage.");
+		    System.out.println(" He wraps his hands around his club and takes yet another swing at your head. Your health is now: " + health);
 		}
+		part3();   
 	}
 	
-	
+	//Part 3
+	//Part 3
 	private void part3(){
-		System.out.println("------------------------------------------------");
-		System.out.println("CHAPTER CUATRO: FRANKY'S FOODS");
-		System.out.println("------------------------------------------------");
+		System.out.println("----------------------------");
+		System.out.println("CHAPTER TRES: FRANKY'S FOODS");
+		System.out.println("----------------------------");
 		System.out.println("");
 		
-		System.out.println("On your way down to the market,now you find yourself walking in circles. Thankfully you meet a friendly traveller who's able to help you. He walk up to and asks if you need help. What do you do?");
+		System.out.println("On your way down to the market, you find yourself walking in circles. Thankfully you meet a friendly traveller who's able to help you. He walk up to and asks if you need help. What do you do?");
 		Scanner sc = new Scanner(System.in);
 		option = sc.nextLine();
 		if(option.equals("Smack him in the face")){
+			part3Death();
+			
 			
 		}
+	}
+	
+	private void part3Death(){
+		System.out.println("The man is very insulted and shoots you in the head. BOOM-- Headshot.");
+		System.out.println("---------------------------------------------------------------------");
+		System.out.println("YOU HAVE DIED.");
+		System.out.println("");
+		game();
+		
 	}
 	
 	private void part4(){
