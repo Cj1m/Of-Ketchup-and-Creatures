@@ -13,6 +13,7 @@ public class Main {
 	String orc="Jeffrey";
 	String gnome="Vietgnome";
 	String wizard="Happy Potter";
+	String bill="Traveller Bill";
 	
 	String option;
 	String lastwords = "'I didn't mean no harm...'";
@@ -21,6 +22,7 @@ public class Main {
 	int health = 10;
 	
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		Main main = new Main();
 	}
 	public Main(){
@@ -42,8 +44,11 @@ public class Main {
 		System.out.println("Welcome to 'Of Ketchup and Creatures', Enjoy your playthrough...");
 		System.out.println("----------------------------------------------------------------");
 		System.out.println("What's your name, adventurer?");
+		
+		@SuppressWarnings("resource")
 		Scanner name = new Scanner(System.in); 
 		usr = name.nextLine();
+		
 		System.out.println("Greetings, " + usr);
 		System.out.println("Your party:");
 		System.out.println("The Dwarf, " + dwarf);
@@ -69,14 +74,18 @@ public class Main {
 		System.out.println("");
 		System.out.println("C) Accept that you will not have ketchup with your beans tonight.");
 		System.out.println("");
+	
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		option = sc.nextLine();
-		if(option.equals("A")){
+		option = option.toLowerCase();
+		
+		if(option.equals("a")){
 			part1Death();
-		}else if(option.equals("B")){
+		}else if(option.equals("b")){
 			System.out.println("You turn back, but by the time you arrive at the Town, you have forgotten why you are there. #LazyDeveloper");
 			part1();
-		}else if(option.equals("C")){
+		}else if(option.equals("c")){
 			System.out.println("You accept that you will not be having ketchup with your beans tonight and carry on with your adventure.");
 			part2();
 		}else{
@@ -87,6 +96,7 @@ public class Main {
 	
 	private void part1Death(){
 		System.out.println(gnome +" shouts 'DIOS ES GRANDE!', ignites his lighter, and sets the wagon on fire. Your last words were " + lastwords);
+		game();
 	}
 	
 	//Part 2
@@ -99,8 +109,11 @@ public class Main {
 		
 		System.out.println("You have been travelling for 2 days and 5 nights. So far, your journey has been uneventful.");
 		System.out.println(" You were not the only forgetful one, half of your party forgot the food. " + dwarf + " is hungry and so are you, who do you eat?");
+		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		option = sc.nextLine();
+		option = option.toLowerCase();
 		
 		System.out.println("CHOP");
 		System.out.println();
@@ -118,14 +131,14 @@ public class Main {
 		}
 		System.out.println("CHOMP!");
 		
-		if(option.equals(gnome)){
+		if(option.equals(gnome.toLowerCase())){
 			System.out.println(gnome + " screams with rage and runs off into the distance with a trail of fire behind him. " + gnome + " has left the party, nice one...");
 			handOff = 1;
-		}else if(option.equals(orc)){
+		}else if(option.equals(orc.toLowerCase())){
 			health--;
 			System.out.println(orc + " looks at his hand, then back at you - his face full of rage. He takes a swing at your head. Your health is now: " + health);
 			handOff = 2;
-		}else if(option.equals(wizard)){
+		}else if(option.equals(wizard.toLowerCase())){
 			System.out.println(wizard + " waves his wand over his wrist. Instead of growing a hand, he grows a flower. " + wizard + " is angry.");
 			handOff = 3;
 		}else{
@@ -154,29 +167,76 @@ public class Main {
 	//Part 3
 	private void part3(){
 		System.out.println("----------------------------");
-		System.out.println("CHAPTER TRES: FRANKY'S FOODS");
+		System.out.println("CHAPTER TRES: TRAVELLER BILL");
 		System.out.println("----------------------------");
 		System.out.println("");
 		
 		System.out.println("On your way down to the market, you find yourself walking in circles. Thankfully you meet a friendly traveller who's able to help you. He walk up to and asks if you need help. What do you do?");
+		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		option = sc.nextLine();
-		if(option.equals("Smack him in the face")){
-			part3Death();
+		option = option.toLowerCase();
+		
+		if(option.equals("smack him in the face") || option.equals("punch him in the face") || option.equals("sing a justin beiber song") || option.equals("twerk") || option.equals("dios es grande")){
+			part3Death();	
+		}else if(option.equals("help me") || option.equals("come here") || option.equals("yes") || option.equals("talk to me") || option.equals("talk to me or i'll bash your skull in")){
+			System.out.println(bill + " Smiles and asks you where you're headed. " + dwarf + " replies, 'We are venturing to the Foggy Mountains (or Hills), could you give us directions.'");
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(bill + " nods, 'Yes, I can give you directions - but only if I am able to be apart of this adventure.'");
+			System.out.println("Talk...");
+			System.out.println("");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Argue..");
+			System.out.println("");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Conclude.");
+			System.out.println("");
 			
-			
+			System.out.println("After a very 'lively' conversation with your party (at one point " + gnome + " threatend to light himself on fire), you conclude that " + bill + " is allowed to join the party.");
+			System.out.println("");
+			System.out.println("'Now' says " + bill + ", 'time to get some supplies..'");
+			System.out.println("");
+			part3AndAHalf();
+		}else{
+			error(3);
 		}
 	}
 	
+	
 	private void part3Death(){
+		System.out.println("");
 		System.out.println("The man is very insulted and shoots you in the head. BOOM-- Headshot.");
 		System.out.println("---------------------------------------------------------------------");
-		System.out.println("YOU HAVE DIED.");
+		health -= 10;;
+		System.out.println("YOU'RE HEALTH IS NOW " + health + ". YOU ARE DEAD!");
 		System.out.println("");
 		game();
-		
 	}
 	
+	//Part 3.5
+	//Part 3.5
+	private void part3AndAHalf() {
+		//TODO finish this method
+	}
+	
+	//Part 4
+	//Part 4
 	private void part4(){
 		/*Part 4:
 		Far over the Foggy Mountain or Hill
@@ -190,6 +250,7 @@ public class Main {
 		if(i == 1);part1();
 		if(i == 2);part2();
 		if(i == 3);part3();
-		if(i == 4);part4();System.out.println("Sorry, that desicion is not valid");		
+		if(i == 304);part3AndAHalf();
+		if(i == 4);part4();System.out.println("Sorry, that desicion is not valid");	//ATM 	
 	}
 }
