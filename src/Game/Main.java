@@ -1,5 +1,6 @@
 package Game;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //Written by Christopher McKay
@@ -19,7 +20,11 @@ public class Main {
 	String lastwords = "'I didn't mean no harm...'";
 	
 	int handOff;
+	
 	int health = 10;
+	
+	String[] foods = {"Potatos", "Carrots", "Beans", "Marmite", "Ketchup", "Beef","Pork", "Kentucky Fried Curry", "Dirt"};
+	ArrayList<String> inv = new ArrayList<String>();
 	
 	public static void main(String[] args) {
 		@SuppressWarnings("unused")
@@ -189,6 +194,13 @@ public class Main {
 				e.printStackTrace();
 			}
 			System.out.println(bill + " nods, 'Yes, I can give you directions - but only if I am able to be apart of this adventure.'");
+			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			System.out.println("Talk...");
 			System.out.println("");
 			try {
@@ -202,16 +214,27 @@ public class Main {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			System.out.println("Conclude.");
 			System.out.println("");
 			
-			System.out.println("After a very 'lively' conversation with your party (at one point " + gnome + " threatend to light himself on fire), you conclude that " + bill + " is allowed to join the party.");
+			System.out.println("After a very 'lively' conversation with your party (at one point " + orc + " threatend to bash his own skull in!), you conclude that " + bill + " is allowed to join the party.");
 			System.out.println("");
 			System.out.println("'Now' says " + bill + ", 'time to get some supplies..'");
 			System.out.println("");
+			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			System.out.println();
+			System.out.println("2 Hours Later..");
+			System.out.println();
+			
 			part3AndAHalf();
 		}else{
 			error(3);
@@ -235,32 +258,50 @@ public class Main {
 	private void part3AndAHalf() {
 		System.out.println("You arrive at the market exhausted after your long hike. You're more hungry than ever and see a food stall feet away.");
 		System.out.println("When you arrive a upbeat man welcomes you to his stall. He says:");
-		System.out.println("'Welcome fellow travellers, what can I do you for? We have a large range of foods, can I interest you in any?");
+		System.out.println("'Welcome fellow travellers, my name is Frank, what can I do you for? We have a large range of foods, can I interest you in any?");
+		
+		
+		
+		System.out.println();
+		
+		System.out.println("I've got: ");
+		int rn = (int) Math.round(Math.random() * 8);
+		System.out.println(foods[rn]);
+		int rn2 = (int) Math.round(Math.random() * 8);
+		System.out.println(foods[rn2]);
+		int rn3 = (int) Math.round(Math.random() * 8);
+		System.out.println(foods[rn3]);
+		System.out.println();
 		
 		Scanner sc = new Scanner(System.in);
 		option = sc.nextLine();
 		option = option.toLowerCase();
+		if(option.equals(foods[rn].toLowerCase())){
+			System.out.println("Frank says 'Thank you, come again' in a strange and foriegn accent.");
+			inv.add(foods[rn]);
+		}else if(option.equals(foods[rn2].toLowerCase())){
+			System.out.println("Frank says 'Thank you, sir!'");
+			inv.add(foods[rn2]);
+		}else if(option.equals(foods[rn3].toLowerCase())){
+			System.out.println("Frank says 'Excellent choice!'");
+			inv.add(foods[rn3]);
+		}
 		
-		if(option.equals("no") || option.equals("piss off") || option.equals("oh hell no") || option.equals("no thank you"));	
-		}else if(option.equals("yes") || option.equals("yes please") || option.equals("indeed") || option.equals("sure") || option.equals("please do") || option.equals("ask for help")){
-			System.out.println();
-			//tell the range of foods and "by the way, the name's Franky"
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		System.out.println("You thank Frank for his generosity, and you continue on your quest...");
+		System.out.println("NEW ITEM AQUIRED: " + inv.get(0));
+		
+		part4();
 	}
 	
 	//Part 4
 	//Part 4
 	private void part4(){
-		/*Part 4:
-		Far over the Foggy Mountain or Hill
-		To dungeons deep with our traveller Bill
-		We could away ere break of day
-		To find our long-forgotten ASPARAGUS!*/
+		/* Part 4:
+		*   Far over the Foggy Mountain or Hill
+		*   To dungeons deep with our traveller Bill
+		*   We could away ere break of day
+		*   To find our long-forgotten ASPARAGUS!
+		*/
 	}
 	
 	private void error(int i){
