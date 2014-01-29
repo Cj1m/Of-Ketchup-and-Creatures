@@ -171,7 +171,7 @@ public class Main {
 		System.out.println("----------------------------");
 		System.out.println("");
 		
-		System.out.println("On your way down to the market, you find yourself walking in circles. Thankfully you meet a friendly traveller who's able to help you. He walk up to and asks if you need help. What do you do?");
+		System.out.println("On your way down to the market, you find yourself walking in circles. Thankfully you meet a friendly traveller who's able to help you. He walks up to and asks if you need help. What do you do?");
 		
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
@@ -180,7 +180,7 @@ public class Main {
 		
 		if(option.equals("smack him in the face") || option.equals("punch him in the face") || option.equals("sing a justin beiber song") || option.equals("twerk") || option.equals("dios es grande")){
 			part3Death();	
-		}else if(option.equals("help me") || option.equals("come here") || option.equals("yes") || option.equals("talk to me") || option.equals("talk to me or i'll bash your skull in")){
+		}else if(option.equals("help me") || option.equals("come here") || option.equals("yes") || option.equals("talk to me") || option.equals("talk to me or i'll bash your skull in") || option.equals("ask for help")){
 			System.out.println(bill + " Smiles and asks you where you're headed. " + dwarf + " replies, 'We are venturing to the Foggy Mountains (or Hills), could you give us directions.'");
 			try {
 				Thread.sleep(2000);
@@ -233,7 +233,24 @@ public class Main {
 	//Part 3.5
 	//Part 3.5
 	private void part3AndAHalf() {
-		//TODO finish this method
+		System.out.println("You arrive at the market exhausted after your long hike. You're more hungry than ever and see a food stall feet away.");
+		System.out.println("When you arrive a upbeat man welcomes you to his stall. He says:");
+		System.out.println("'Welcome fellow travellers, what can I do you for? We have a large range of foods, can I interest you in any?");
+		
+		Scanner sc = new Scanner(System.in);
+		option = sc.nextLine();
+		option = option.toLowerCase();
+		
+		if(option.equals("no") || option.equals("piss off") || option.equals("oh hell no") || option.equals("no thank you"));	
+		}else if(option.equals("yes") || option.equals("yes please") || option.equals("indeed") || option.equals("sure") || option.equals("please do") || option.equals("ask for help")){
+			System.out.println();
+			//tell the range of foods and "by the way, the name's Franky"
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 	
 	//Part 4
