@@ -113,7 +113,7 @@ public class Main {
 		System.out.println("");
 		
 		System.out.println("You have been travelling for 2 days and 5 nights. So far, your journey has been uneventful.");
-		System.out.println(" You were not the only forgetful one, half of your party forgot the food. " + dwarf + " is hungry and so are you, who do you eat?");
+		System.out.println("You were not the only forgetful one, half of your party forgot the food. " + dwarf + " is hungry and so are you, who do you eat?");
 		
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
@@ -186,7 +186,7 @@ public class Main {
 		if(option.equals("smack him in the face") || option.equals("punch him in the face") || option.equals("sing a justin beiber song") || option.equals("twerk") || option.equals("dios es grande")){
 			part3Death();	
 		}else if(option.equals("help me") || option.equals("come here") || option.equals("yes") || option.equals("talk to me") || option.equals("talk to me or i'll bash your skull in") || option.equals("ask for help")){
-			System.out.println(bill + " Smiles and asks you where you're headed. " + dwarf + " replies, 'We are venturing to the Foggy Mountains (or Hills), could you give us directions.'");
+			System.out.println(bill + " Smiles and asks you where you're headed. " + dwarf + " replies, 'We are venturing to the Foggy Mountains (or Hills), could you give us directions?'");
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
