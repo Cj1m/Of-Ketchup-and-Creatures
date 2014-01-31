@@ -315,6 +315,6 @@ public class Main {
 	}
 	
 	public void Say(String x){
-		Say(x);
+		System.out.println(x);
 	}
 }
