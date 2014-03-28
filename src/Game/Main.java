@@ -16,7 +16,6 @@ public class Main {
 	String wizard="Happy Potter";
 	String bill="Traveller Bill";
 	
-	String option;
 	
 	int rn;
 	int rn2;
@@ -81,14 +80,9 @@ public class Main {
 		Say("");
 		Say("C) Accept that you will not have ketchup with your beans tonight.");
 		Say("");
-	
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		option = sc.nextLine();
-		option = option.toLowerCase();
 		
 		@SuppressWarnings("unused")
-		Options chapter1Options = new Options(usr, option, 1, this);
+		Options chapter1Options = new Options(usr, option(), 1, this);
 	}
 	
 	
@@ -103,30 +97,8 @@ public class Main {
 		Say("You have been travelling for 2 days and 5 nights. So far, your journey has been uneventful.");
 		Say("You were not the only forgetful one, half of your party forgot the food. " + dwarf + " is hungry and so are you, who do you eat?");
 		
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		option = sc.nextLine();
-		option = option.toLowerCase();
-		
-		Say("CHOP");
-		Say("");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Say("CHOP");
-		Say("");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Say("CHOMP!");
-		
-		
 		@SuppressWarnings("unused")
-		Options chapter2Options = new Options(usr, option, 2, this);  
+		Options chapter2Options = new Options(usr, option(), 2, this);  
 	}
 	
 	//Part 3
@@ -138,14 +110,9 @@ public class Main {
 		Say("");
 		
 		Say("On your way down to the market, you find yourself walking in circles. Thankfully you meet a friendly traveller who's able to help you. He walks up to and asks if you need help. What do you do?");
-		
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		option = sc.nextLine();
-		option = option.toLowerCase();
-		
+
 		@SuppressWarnings("unused")
-		Options chapter3Options = new Options(usr, option, 3, this);
+		Options chapter3Options = new Options(usr, option(), 3, this);
 	}
 	
 	
@@ -161,20 +128,15 @@ public class Main {
 		Say("");
 		
 		Say("I've got: ");
-		rn = (int) Math.round(Math.random() * 8);
+		rn = (int) Math.round(Math.random() * foods.length - 1);
 		Say(foods[rn]);
-		rn2 = (int) Math.round(Math.random() * 8);
+		rn2 = (int) Math.round(Math.random() * foods.length - 1);
 		Say(foods[rn2]);
-		rn3 = (int) Math.round(Math.random() * 8);
+		rn3 = (int) Math.round(Math.random() * foods.length - 1);
 		Say(foods[rn3]);
 		Say("");
 		
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		option = sc.nextLine();
-		option = option.toLowerCase();
-		@SuppressWarnings("unused")
-		Options chapter305Options = new Options(usr, option, 305, this);
+		Options chapter305Options = new Options(usr, option(), 305, this);
 	}
 	
 	//Part 4
@@ -186,8 +148,22 @@ public class Main {
 		*   We could away ere break of day
 		*   To find our long-forgotten ASPARAGUS!
 		*/
+		Say("");
+		Say("Before continuing your adventure, do you want to eat your " + inv.get(0) + "?");
+		
+		Options chapter310Options = new Options(usr, option(), 310, this);
 	}
 	
+	private String option(){	
+		String o;
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		o = sc.nextLine();
+		o = o.toLowerCase();
+		return(o);
+	}
+	
+	//Easier to type Say(); than System.out.println();
 	public void Say(String x){
 		System.out.println(x);
 	}

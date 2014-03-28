@@ -19,7 +19,10 @@ public class Options {
 		if(chapter == 2)o2(option);
 		if(chapter == 3)o3(option);
 		if(chapter == 305)o3h(option);
+		if(chapter == 310)o3q(option);
+		if(chapter == 4)o4(option);
 	}
+	
 	private void o1(String option){
 		if(option.equals("a")){
 			part1Death();
@@ -34,6 +37,21 @@ public class Options {
 		}
 	}
 	private void o2(String option){
+		Say("CHOP");
+		Say("");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Say("CHOP");
+		Say("");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Say("CHOMP!");
 		if(option.equals(gnome)){
 			Say(gnome + " screams with rage and runs off into the distance with a trail of fire behind him. " + gnome + " has left the party, nice one...");
 			game.handOff = 1;
@@ -71,7 +89,7 @@ public class Options {
 		}else if(option.equals("help me") || option.equals("come here") || option.equals("yes") || option.equals("talk to me") || option.equals("talk to me or i'll bash your skull in") || option.equals("ask for help")){
 			Say(bill + " Smiles and asks you where you're headed. " + dwarf + " replies, 'We are venturing to the Foggy Mountains (or Hills), could you give us directions?'");
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(5000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -141,6 +159,19 @@ public class Options {
 		game.part4();
 	}
 	
+	private void o3q(String option) {
+		if(option.equals("yes") || option.equals("y")){
+			int healthIncrement = (int) Math.floor(Math.random() * 3);
+			game.health += healthIncrement;
+			Say("You have eaten your " + game.inv.get(0) + ", which has increased your health by " + healthIncrement + " health is now " + game.health);
+		}else if(option.equals("no") || option.equals("n")){
+			Say("You save your " + game.inv.get(0) + " for later");
+		}else{
+			error(310);
+		}
+		
+	}
+	
 	//Unused because Chapter 4 is not done 
 	@SuppressWarnings("unused")
 	private void o4(String option){
@@ -170,8 +201,9 @@ public class Options {
 		if(i == 1)game.part1();
 		if(i == 2)game.part2();
 		if(i == 3)game.part3();
-		if(i == 304)game.part3AndAHalf();
-		if(i == 4)game.part4();Say("Sorry, that desicion is not valid");	//ATM 	
+		if(i == 305)game.part3AndAHalf();
+		if(i == 310)game.part4();
+		if(i == 4)game.part4();	//ATM 	
 	}
 	public void Say(String x){
 		System.out.println(x);
