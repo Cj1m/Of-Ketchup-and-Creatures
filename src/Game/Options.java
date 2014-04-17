@@ -58,7 +58,7 @@ public class Options {
 		}else if(option.equals(orc)){
 			game.health--;
 			Say(orc + " looks at his hand, then back at you - his face full of rage. He takes a swing at your head. Your health is now: " + game.health);
-			game.handOff = 2;
+			game.handOff = 2; 
 		}else if(option.equals(wizard)){
 			Say(wizard + " waves his wand over his wrist. Instead of growing a hand, he grows a flower. " + wizard + " is angry.");
 			game.handOff = 3;

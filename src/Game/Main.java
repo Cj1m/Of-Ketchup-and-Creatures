@@ -9,6 +9,8 @@ import java.util.Scanner;
 //Note from Chris: Chris' story tots doesnae mattter bruv, I follow ye.
 
 public class Main {
+	String version="v 17";
+	
 	String usr;
 	String dwarf ="Syrupsteam";
 	String orc="Jeffrey";
@@ -24,8 +26,9 @@ public class Main {
 	int handOff;
 	int health = 10;
 	
-	String[] foods = {"Potatos", "Carrots", "Beans", "Marmite", "Ketchup", "Beef","Pork", "Kentucky Fried Curry"};
+	String[] foods = {"Potatos", "Carrots", "Beans", "Marmite", "Ketchup", "Beef", "Pork", "Kentucky Fried Curry", "Lutefisk", "Salmon", "Generic Hazelnut Chocolate Spread", "Bag O' Weasels", "Jam Donut", "Glazed Donut", "Ketchup Donut"};
 	ArrayList<String> inv = new ArrayList<String>();
+	ArrayList<String> party;
 	
 	public static void main(String[] args) {
 		@SuppressWarnings("unused")
@@ -46,11 +49,16 @@ public class Main {
 		part1();
 	}
 	
-<<<<<<< Updated upstream
 	public void welcome(){
-=======
-	private void welcome(){
->>>>>>> Stashed changes
+		party = new ArrayList<String>();
+		
+		Say("Of-Ketchup-and-Creatures " + version);
+		Say("");
+		Say("  __        __     __");
+		Say(" /  \\  | /  /  \\   /");
+		Say("|    | |\\  /____\\ |");
+		Say(" \\__/  | | |    |  \\__");
+		Say("");
 		Say("Welcome to 'Of Ketchup and Creatures', Enjoy your playthrough...");
 		Say("----------------------------------------------------------------");
 		Say("What's your name, adventurer?");
@@ -58,6 +66,7 @@ public class Main {
 		@SuppressWarnings("resource")
 		Scanner name = new Scanner(System.in); 
 		usr = name.nextLine();
+		hacertrampa(usr);
 		
 		Say("Greetings, " + usr);
 		Say("Your party:");
@@ -66,15 +75,16 @@ public class Main {
 		Say("The Gnome, " + gnome);
 		Say("The Wizard, " + wizard);
 		Say("And of course, there's you, the human, " + usr);
+		
+		party.add(dwarf);
+		party.add(orc);
+		party.add(gnome);
+		party.add(wizard);
 	}
 	
 	//Part 1
 	//Part 1
-<<<<<<< Updated upstream
 	public void part1(){
-=======
-	private void part1(){
->>>>>>> Stashed changes
 		Say("------------------------------------");
 		Say("CHAPTER UNO: GOODBYE MY DEAR KETCHUP");
 		Say("------------------------------------");
@@ -88,130 +98,36 @@ public class Main {
 		Say("");
 		Say("C) Accept that you will not have ketchup with your beans tonight.");
 		Say("");
-<<<<<<< Updated upstream
-=======
-	
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		option = sc.nextLine();
-		option = option.toLowerCase();
-		
-		if(option.equals("a")){
-			part1Death();
-		}else if(option.equals("b")){
-			Say("You turn back, but by the time you arrive at the Town, you have forgotten why you are there. #LazyDeveloper");
-			part1();
-		}else if(option.equals("c")){
-			Say("You accept that you will not be having ketchup with your beans tonight and carry on with your adventure.");
-			part2();
-		}else{
-			error(1);
-		}
->>>>>>> Stashed changes
 		
 		@SuppressWarnings("unused")
 		Options chapter1Options = new Options(usr, option(), 1, this);
 	}
 	
-<<<<<<< Updated upstream
 	
 	//Part 2
 	//Part 2
 	public void part2(){
-=======
-	private void part1Death(){
-		Say(gnome +" shouts 'DIOS ES GRANDE!', ignites his lighter, and sets the wagon on fire. Your last words were " + lastwords);
-		game();
-	}
-	
-	//Part 2
-	//Part 2
-	private void part2(){
->>>>>>> Stashed changes
 		Say("---------------------");
 		Say("CHAPTER DOS: HAND OFF");
 		Say("---------------------");
 		Say("");
-<<<<<<< Updated upstream
 		
 		Say("You have been travelling for 2 days and 5 nights. So far, your journey has been uneventful.");
 		Say("You were not the only forgetful one, half of your party forgot the food. " + dwarf + " is hungry and so are you, who do you eat?");
 		
 		@SuppressWarnings("unused")
 		Options chapter2Options = new Options(usr, option(), 2, this);  
-=======
-		
-		Say("You have been travelling for 2 days and 5 nights. So far, your journey has been uneventful.");
-		Say(" You were not the only forgetful one, half of your party forgot the food. " + dwarf + " is hungry and so are you, who do you eat?");
-		
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		option = sc.nextLine();
-		option = option.toLowerCase();
-		
-		Say("CHOP");
-		Say("");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Say("CHOP");
-		Say("");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Say("CHOMP!");
-		
-		if(option.equals(gnome.toLowerCase())){
-			Say(gnome + " screams with rage and runs off into the distance with a trail of fire behind him. " + gnome + " has left the party, nice one...");
-			handOff = 1;
-		}else if(option.equals(orc.toLowerCase())){
-			health--;
-			Say(orc + " looks at his hand, then back at you - his face full of rage. He takes a swing at your head. Your health is now: " + health);
-			handOff = 2;
-		}else if(option.equals(wizard.toLowerCase())){
-			Say(wizard + " waves his wand over his wrist. Instead of growing a hand, he grows a flower. " + wizard + " is angry.");
-			handOff = 3;
-		}else{
-			error(2);
-		}
-		
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Say("");
-		Say("A bright light catches your eye. You look into the distance and see a brightly lit market - a food market.");
-		
-		if(handOff == 2){
-			health--;
-			Say(orc + " looks at his hand again, then back at you - his face filling with more rage.");
-		    Say(" He wraps his hands around his club and takes yet another swing at your head. Your health is now: " + health);
-		}
-		part3();   
->>>>>>> Stashed changes
 	}
 	
 	//Part 3
 	//Part 3
-<<<<<<< Updated upstream
 	public void part3(){
-=======
-	private void part3(){
->>>>>>> Stashed changes
 		Say("----------------------------");
 		Say("CHAPTER TRES: TRAVELLER BILL");
 		Say("----------------------------");
 		Say("");
 		
 		Say("On your way down to the market, you find yourself walking in circles. Thankfully you meet a friendly traveller who's able to help you. He walks up to and asks if you need help. What do you do?");
-<<<<<<< Updated upstream
 
 		@SuppressWarnings("unused")
 		Options chapter3Options = new Options(usr, option(), 3, this);
@@ -221,136 +137,24 @@ public class Main {
 	//Part 3.5
 	//Part 3.5
 	public void part3AndAHalf() {
-=======
-		
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		option = sc.nextLine();
-		option = option.toLowerCase();
-		
-		if(option.equals("smack him in the face") || option.equals("punch him in the face") || option.equals("sing a justin beiber song") || option.equals("twerk") || option.equals("dios es grande")){
-			part3Death();	
-		}else if(option.equals("help me") || option.equals("come here") || option.equals("yes") || option.equals("talk to me") || option.equals("talk to me or i'll bash your skull in") || option.equals("ask for help")){
-			Say(bill + " Smiles and asks you where you're headed. " + dwarf + " replies, 'We are venturing to the Foggy Mountains (or Hills), could you give us directions.'");
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Say(bill + " nods, 'Yes, I can give you directions - but only if I am able to be apart of this adventure.'");
-			
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			Say("Talk...");
-			Say("");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Say("Argue..");
-			Say("");
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			Say("Conclude.");
-			Say("");
-			
-			Say("After a very 'lively' conversation with your party (at one point " + orc + " threatend to bash his own skull in!), you conclude that " + bill + " is allowed to join the party.");
-			Say("");
-			Say("'Now' says " + bill + ", 'time to get some supplies..'");
-			Say("");
-			
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			Say("");
-			Say("2 Hours Later..");
-			Say("");
-			
-			part3AndAHalf();
-		}else{
-			error(3);
-		}
-	}
-	
-	
-	private void part3Death(){
-		Say("");
-		Say("The man is very insulted and shoots you in the head. BOOM-- Headshot.");
-		Say("---------------------------------------------------------------------");
-		health -= 10;;
-		Say("YOU'RE HEALTH IS NOW " + health + ". YOU ARE DEAD!");
-		Say("");
-		health = 10;
-		game();
-	}
-	
-	//Part 3.5
-	//Part 3.5
-	private void part3AndAHalf() {
->>>>>>> Stashed changes
-		Say("You arrive at the market exhausted after your long hike. You're more hungry than ever and see a food stall feet away.");
-		Say("When you arrive a upbeat man welcomes you to his stall. He says:");
+		Say("You arrive at the market, exhausted after your long hike. You're more hungry than ever and see a food stall feet away.");
+		Say("When you arrive an upbeat man welcomes you to his stall. He says:");
 		Say("'Welcome fellow travellers, my name is Frank, what can I do you for? We have a large range of foods, can I interest you in any?");
 		
-		
-		
-		Say("");
+		int foodLength = foods.length - 1;
 		
 		Say("I've got: ");
-<<<<<<< Updated upstream
-		rn = (int) Math.round(Math.random() * foods.length - 1);
+
+		rn = (int) Math.round(Math.random() * foodLength);
 		Say(foods[rn]);
-		rn2 = (int) Math.round(Math.random() * foods.length - 1);
+		rn2 = (int) Math.round(Math.random() * foodLength);
 		Say(foods[rn2]);
-		rn3 = (int) Math.round(Math.random() * foods.length - 1);
+		rn3 = (int) Math.round(Math.random() * foodLength);
+
 		Say(foods[rn3]);
 		Say("");
 		
 		Options chapter305Options = new Options(usr, option(), 305, this);
-=======
-		int rn = (int) Math.round(Math.random() * 8);
-		Say(foods[rn]);
-		int rn2 = (int) Math.round(Math.random() * 8);
-		Say(foods[rn2]);
-		int rn3 = (int) Math.round(Math.random() * 8);
-		Say(foods[rn3]);
-		Say("");
-		
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
-		option = sc.nextLine();
-		option = option.toLowerCase();
-		
-		if(option.equals(foods[rn].toLowerCase())){
-			Say("Frank says 'Thank you, come again' in a strange and foriegn accent.");
-			inv.add(foods[rn]);
-		}else if(option.equals(foods[rn2].toLowerCase())){
-			Say("Frank says 'Thank you, sir!'");
-			inv.add(foods[rn2]);
-		}else if(option.equals(foods[rn3].toLowerCase())){
-			Say("Frank says 'Excellent choice!'");
-			inv.add(foods[rn3]);
-		}
-		
-		Say("You thank Frank for his generosity, and you continue on your quest...");
-		Say("NEW ITEM AQUIRED: " + inv.get(0));
-		
-		part4();
->>>>>>> Stashed changes
 	}
 	
 	//Part 4
@@ -362,6 +166,14 @@ public class Main {
 		*   We could away ere break of day
 		*   To find our long-forgotten ASPARAGUS!
 		*/
+
+		Say("-------------------------------------------");
+		Say("CHAPTER CUATRO: THE FOGGY MOUTAIN (OR HILL)");
+		Say("-------------------------------------------");
+		Say("");
+		Say("Now you, and the remains of your party, " + party + " are on the road, travelling.");
+		
+
 		Say("");
 		Say("Before continuing your adventure, do you want to eat your " + inv.get(0) + "?");
 		
@@ -377,20 +189,54 @@ public class Main {
 		return(o);
 	}
 	
-<<<<<<< Updated upstream
 	//Easier to type Say(); than System.out.println();
-=======
-	private void error(int i){
-		Say("Are you mad?");
-		if(i == 1)part1();
-		if(i == 2)part2();
-		if(i == 3)part3();
-		if(i == 304)part3AndAHalf();
-		if(i == 4)part4();Say("Sorry, that desicion is not valid");	//ATM 	
-	}
-	
->>>>>>> Stashed changes
 	public void Say(String x){
 		System.out.println(x);
+	}
+	
+	private void hacertrampa(String usr){
+		String lusr = usr.toLowerCase();
+		switch(lusr){
+		case "stark":
+			Say("");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			Say("Incoming signal from Ned!");
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			Say("Message received");
+			Say("");
+			
+			Say("Winter is coming, here, have some beans!");
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			inv.add(foods[2]);
+			Say("NEW ITEM AQUIRED: " + inv.get(inv.size() - 1));
+			Say("Ned shoves the food into your mouth.");
+			int healthIncrement = (int) Math.floor(Math.random() * 10);
+			health += healthIncrement;
+			Say("Health is now: " +health);
+
+			Say("");
+			Say("Returning to game...");
+			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Say("");
+			Say("");
+		}
 	}
 }
