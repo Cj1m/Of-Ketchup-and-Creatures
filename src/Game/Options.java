@@ -86,7 +86,7 @@ public class Options {
 	private void o3(String option){
 		if(option.equals("smack him in the face") || option.equals("punch him in the face") || option.equals("sing a justin beiber song") || option.equals("twerk") || option.equals("dios es grande")){
 			part3Death();	
-		}else if(option.equals("help me") || option.equals("come here") || option.equals("yes") || option.equals("talk to me") || option.equals("talk to me or i'll bash your skull in") || option.equals("ask for help")){
+		}else if(option.equals("ask for help") || option.equals("approach him") || option.equals("ask for directions") || option.equals("talk to me") || option.equals("talk to me or i'll bash your skull in")){
 			Say(bill + " Smiles and asks you where you're headed. " + dwarf + " replies, 'We are venturing to the Foggy Mountains (or Hills), could you give us directions?'");
 			try {
 				Thread.sleep(5000);
@@ -119,6 +119,8 @@ public class Options {
 			}
 			Say("Conclude.");
 			Say("");
+			
+			game.party.add(game.bill);
 			
 			Say("After a very 'lively' conversation with your party (at one point " + orc + " threatend to bash his own skull in!), you conclude that " + bill + " is allowed to join the party.");
 			Say("");
@@ -161,7 +163,7 @@ public class Options {
 	
 	private void o3q(String option) {
 		if(option.equals("yes") || option.equals("y")){
-			int healthIncrement = (int) Math.floor(Math.random() * 3);
+			int healthIncrement = (int) Math.ceil(Math.random() * 3);
 			game.health += healthIncrement;
 			Say("You have eaten your " + game.inv.get(0) + ", which has increased your health by " + healthIncrement + " health is now " + game.health);
 		}else if(option.equals("no") || option.equals("n")){
