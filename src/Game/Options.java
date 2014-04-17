@@ -156,8 +156,7 @@ public class Options {
 		}
 		
 		Say("You thank Frank for his generosity, and you continue on your quest...");
-		Say("NEW ITEM AQUIRED: " + game.inv.get(0));
-		
+		Say("NEW ITEM AQUIRED: " + game.inv.get(game.inv.size() - 1));
 		game.part4();
 	}
 	
@@ -165,19 +164,57 @@ public class Options {
 		if(option.equals("yes") || option.equals("y")){
 			int healthIncrement = (int) Math.ceil(Math.random() * 3);
 			game.health += healthIncrement;
-			Say("You have eaten your " + game.inv.get(0) + ", which has increased your health by " + healthIncrement + " health is now " + game.health);
+			Say("You have eaten your " + game.inv.get(game.inv.size() - 1) + ", which has increased your health by " + healthIncrement + " health is now " + game.health);
 		}else if(option.equals("no") || option.equals("n")){
-			Say("You save your " + game.inv.get(0) + " for later");
+			Say("You save your " + game.inv.get(game.inv.size() - 1) + " for later");
 		}else{
 			error(310);
 		}
 		
 	}
 	
-	//Unused because Chapter 4 is not done 
-	@SuppressWarnings("unused")
 	private void o4(String option){
-	
+		if(option.equals("call for help") || option.equals("shout dramatically for help, with an epic twist to your voice")){
+			Say(game.bill + " comes running to aid " + game.dwarf + ". 'Here have a snickers' says " + game.bill + " 'You become a right diva when you're hungry'.");
+			Say(game.dwarf + " eats the Snickers. He is now calm!");
+			Say("");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			Say(game.dwarf+"'s phone beeps. It is a message from " + game.wizard + ". It reads:");
+			Say("");
+			Say("Far over the Foggy Mountain or Hill");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			Say("To dungeons deep with our traveller Bill");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		    Say("We could away ere break of day");
+		    try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		    Say("To find our long-forgotten ASPARAGUS");
+		    try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		    Say(game.wizard + " appears out of no where. 'Follow me' he says, 'We are going to the Foggy Mountain or Hill!'");
+		}else if(option.equals("approach " + dwarf) || option.equals("say it is only a game")){
+			part4Death();
+		}else{
+			error(4);
+		}
 	}
 	
 	
@@ -194,6 +231,12 @@ public class Options {
 		game.health -= 10;;
 		Say("YOU'RE HEALTH IS NOW " + game.health + ". YOU ARE DEAD!");
 		Say("");
+		game.health = 10;
+		game.game();
+	}
+	
+	private void part4Death(){
+		Say(game.dwarf + " grabs you by the head, and smashes it until there is nothing left apart from blood and 2 eyeballs, which he eats.");
 		game.health = 10;
 		game.game();
 	}

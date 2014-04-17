@@ -9,7 +9,7 @@ import java.util.Scanner;
 //Note from Chris: Chris' story tots doesnae mattter bruv, I follow ye.
 
 public class Main {
-	String version="v 17";
+	String version="v 21";
 	
 	String usr;
 	String dwarf ="Syrupsteam";
@@ -160,13 +160,6 @@ public class Main {
 	//Part 4
 	//Part 4
 	public void part4(){
-		/* Part 4:
-		*   Far over the Foggy Mountain or Hill
-		*   To dungeons deep with our traveller Bill
-		*   We could away ere break of day
-		*   To find our long-forgotten ASPARAGUS!
-		*/
-
 		Say("-------------------------------------------");
 		Say("CHAPTER CUATRO: THE FOGGY MOUTAIN (OR HILL)");
 		Say("-------------------------------------------");
@@ -178,6 +171,28 @@ public class Main {
 		Say("Before continuing your adventure, do you want to eat your " + inv.get(0) + "?");
 		
 		Options chapter310Options = new Options(usr, option(), 310, this);
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		Say("");
+		Say("After a long day, you and your party decide to make camp for the night.");
+		Say("You lay down on the grass, using your rucksack as a pillow");
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		Say("The next morning you are awoken by the sound of " + dwarf + " screaming at his phone, while playing Clash of Clans.");
+		Say("You also notice that " + wizard + " is not with you, but there are other problems at hand, " + dwarf + " is raging!");
+		Say("You need to help " + dwarf + "... But how?");
+		
+		Options chapter4Options = new Options(usr, option(), 4, this);
 	}
 	
 	private String option(){	
@@ -219,13 +234,11 @@ public class Main {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			inv.add(foods[2]);
-			Say("NEW ITEM AQUIRED: " + inv.get(inv.size() - 1));
+			Say("NEW ITEM AQUIRED: " + foods[2]);
 			Say("Ned shoves the food into your mouth.");
 			int healthIncrement = (int) Math.floor(Math.random() * 10);
 			health += healthIncrement;
 			Say("Health is now: " +health);
-
 			Say("");
 			Say("Returning to game...");
 			
