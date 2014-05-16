@@ -204,9 +204,21 @@ public class Main {
 		return(o);
 	}
 	
-	//Easier to type Say(); than System.out.println();
 	public void Say(String x){
-		System.out.println(x);
+		
+		char[] chars = x.toCharArray();
+		
+		for(int i = 0; i < chars.length; i++){
+			System.out.print(chars[i]);
+			try {
+				Thread.sleep(60);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println();
+		//System.out.println(x);
 	}
 	
 	private void hacertrampa(String usr){
